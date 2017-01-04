@@ -35,7 +35,7 @@ var config = {
 	   shopify_api_key: '0c5d97a525d274cde24587a856d1e132', // Your API key 
 	   shopify_shared_secret: 'c6f13aa81d469be88c5b20dc3861b8e0', // Your Shared Secret 
 	   shopify_scope: 'write_products, write_themes',
-	   redirect_uri: 'http://localhost:3000/auth/shopify',
+	   redirect_uri: 'https://shoopthelook-heroku.herokuapp.com/auth/shopify',
 	   nonce: unique // you must provide a randomly selected value unique for each authorization request 
   };
 
