@@ -1,0 +1,94 @@
+<% layout('layout') -%>
+
+<style>
+
+#theElement-a {
+    position: relative;
+    display: inline-block;
+}
+
+.hotspot { background-color: blue; position: absolute; width: 20px; height: 20px; border-radius: 50%; }
+
+.hotspot > div { width: 200px; height: 400px; background-color: yellow; }
+
+.form-img {margin-top: 50px;}
+</style>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h1>Shoopthelook</h1>
+			<span>Now choose the hotspots and insert the product handle.</span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div id="theElement-a">
+				<img id="output" src="<%= image %>"/>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<script type="text/javascript" src="/javascripts/jquery.hotspot.js"></script>
+
+<script>
+
+
+
+
+/*
+$('#theElement').hotspot({
+   	 data: [
+        { "x":288, "y":100, "Title":"The Title","Message":"Create the Message here" },
+        { "x":143, "y":200, "Title":"jQuery Hotspot","Message":"This jQuery Plugin lets you create hotspot to any HTML element." }
+    ],
+    tag: 'img', //optional (default is img)
+    interactivity: "click", // options : click, none (default is hover)
+    hotspotClass: 'hotspot'
+});*/
+
+$(document).ready(function(){
+
+	var im = document.getElementById('output');
+
+
+	function initHotSpot(){
+		$("#theElement-a").hotspot({
+			mode: "admin",
+			ajax: true,
+			ajaxOptions: {
+				'url': 'http://localhost:3000/dashboard/build/step-3'
+			},
+			dataStuff: [
+				{
+					'property': 'product_id',
+					'default': 'jQuery Hotspot'
+				}
+			],
+			LS_Variable: "HotspotPlugin-a",
+			done_btnId: 'done-a',
+			remove_btnId: 'remove-a',
+			server_btnId: 'server-a',
+			done_btnClass: 'btn btn-success controls',
+			remove_btnClass: 'btn btn-danger controls',
+			sync_btnClass: 'btn btn-info controls',
+			afterSave: function(message) {
+				alert(message);
+			},
+			afterRemove: function(message) {
+				alert(message);
+				window.location.reload();
+			},
+			afterSyncToServer: function(message) {
+				alert(message);
+			}
+		});
+	}
+   im.onload = function () {
+        initHotSpot();       
+    };
+
+})
+</script>

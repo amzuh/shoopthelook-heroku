@@ -1,0 +1,53 @@
+<% layout('layout') -%>
+
+<style>
+
+#theElement-a {
+    position: relative;
+    display: inline-block;
+}
+
+.hotspot { background-color: blue; position: absolute; width: 20px; height: 20px; border-radius: 50%; }
+
+.hotspot > div { width: 200px; height: 400px; background-color: yellow; }
+
+.form-img {margin-top: 50px;}
+</style>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h1>Here you start by uploading your image to shopify</h1>
+			<span>Start By creating a name and choosing the image. Then create the hotspots and save them.</span>
+		</div>
+		<form class="form form-img col-xs-12" method="post" enctype="multipart/form-data">
+		  <div class="form-group col-xs-3">
+			    <label for="name">Name your image</label>
+			    <input type="text" class="form-control" id="name" name="name" placeholder="Name" />
+		  </div>
+		  <div class="form-group col-xs-3">
+		  		<label for="image">Image</label>
+		        <input type="file" id="image" name="image" />
+		  </div>
+		  <div class="col-xs-6">
+		  	<button type="submit" class="btn btn-default pull-right">All done</button>
+		  </div>
+		</form>
+	</div>
+
+</div>
+
+
+<script>
+/*
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    console.log(output.src);
+    setTimeout(function(){
+    	initHotSpot();
+    },3000);
+  };
+*/
+
+</script>
